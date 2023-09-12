@@ -57,6 +57,9 @@ final class MovieQuizViewController: UIViewController {
     @IBOutlet private var counterLabel: UILabel!
     @IBOutlet private var textLabel: UILabel!
     
+    @IBOutlet private var yesButton: UIButton!
+    
+    @IBOutlet private var noButton: UIButton!
     @IBAction private func noButtonClicked(_ sender: Any) {
         let currentQuestion = questions[currentQuestionIndex]
         showAnswerResult(isCorrect: !currentQuestion.correctAnswer)
@@ -81,9 +84,13 @@ final class MovieQuizViewController: UIViewController {
         counterLabel.text = step.questionNumber
         textLabel.text = step.question
         imageView.image = step.image
+        yesButton.isEnabled = true
+        noButton.isEnabled = true
     }
     
     private func showAnswerResult(isCorrect: Bool) {
+        yesButton.isEnabled = false
+        noButton.isEnabled = false
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
