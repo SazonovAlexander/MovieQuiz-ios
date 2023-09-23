@@ -57,24 +57,19 @@ final class MovieQuizViewController: UIViewController {
     @IBOutlet private var counterLabel: UILabel!
     @IBOutlet private var textLabel: UILabel!
     
+    @IBOutlet private var yesButton: UIButton!
+    
+    @IBOutlet private var noButton: UIButton!
     @IBAction private func noButtonClicked(_ sender: Any) {
         let currentQuestion = questions[currentQuestionIndex]
-        if currentQuestion.correctAnswer == false {
-            showAnswerResult(isCorrect: true)
-        }
-        else {
-            showAnswerResult(isCorrect: false)
-        }
+        showAnswerResult(isCorrect: !currentQuestion.correctAnswer)
+       
+        
     }
     
     @IBAction private func yesButtonClicked(_ sender: Any) {
         let currentQuestion = questions[currentQuestionIndex]
-        if currentQuestion.correctAnswer == false {
-            showAnswerResult(isCorrect: true)
-        }
-        else {
-            showAnswerResult(isCorrect: false)
-        }
+        showAnswerResult(isCorrect: currentQuestion.correctAnswer)
     }
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
@@ -89,9 +84,13 @@ final class MovieQuizViewController: UIViewController {
         counterLabel.text = step.questionNumber
         textLabel.text = step.question
         imageView.image = step.image
+        yesButton.isEnabled = true
+        noButton.isEnabled = true
     }
     
     private func showAnswerResult(isCorrect: Bool) {
+        yesButton.isEnabled = false
+        noButton.isEnabled = false
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
@@ -104,6 +103,7 @@ final class MovieQuizViewController: UIViewController {
     }
     
     private func showNextQuestionOrResults() {
+        imageView.layer.borderWidth = 0
         if currentQuestionIndex == questions.count - 1 {
             let quizResult = QuizResultsViewModel(title: "Этот раунд окончен!", text: "Ваш результат \(correctAnswers)/10", buttonText: "Сыграть ещё раз")
             show(quiz: quizResult)
