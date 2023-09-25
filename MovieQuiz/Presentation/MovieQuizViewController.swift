@@ -7,7 +7,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         questionFactory.delegate = self
         questionFactory.requestNextQuestion()
         alertPresenter.delegate = self
-        statisticService = StatisticServiceImplementation()
     }
     // MARK: - QuestionFactoryDelegate
     func didReceiveNextQuestion(question: QuizQuestion?) {
@@ -33,7 +32,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     private var questionFactory: QuestionFactoryProtocol = QuestionFactory()
     private var currentQuestion: QuizQuestion?
     private var alertPresenter: AlertPresenterProtocol = AlertPresenter()
-    private var statisticService: StatisticService
+    private var statisticService: StatisticService = StatisticServiceImplementation()
     @IBOutlet private var imageView: UIImageView!
     
     @IBOutlet private var counterLabel: UILabel!
@@ -93,9 +92,11 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     private func showNextQuestionOrResults() {
         imageView.layer.borderWidth = 0
         if currentQuestionIndex == questionsAmount - 1 {
-            let result = QuizResultsViewModel(title: "Этот раунд окончен!", text: "Ваш результат \(correctAnswers)/10", buttonText: "Сыграть ещё раз")
-            let alert = convertResultToAlertModel(result)
-            alertPresenter.showAlert(model: alert)
+            statisticService.store(correct: correctAnswers, total: questionsAmount)
+            let record = statisticService.bestGame
+            let result = QuizResultsViewModel(title: "Этот раунд окончен!", text: "Ваш результат: \(correctAnswers)/10\nКоличество сыгранных квизов: \(statisticService.gamesCount)\nРекорд: \(record.correct)/\(record.total) (\(record.date.dateTimeString))\nСредняя точность: \(String(format: "%.2f", statisticService.totalAccurancy * 100.0))%", buttonText: "Сыграть ещё раз")
+            show(quiz: result)
+            
         } else {
             currentQuestionIndex += 1
             questionFactory.requestNextQuestion()
@@ -103,14 +104,15 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     }
     
     
-    private func convertResultToAlertModel(_ result: QuizResultsViewModel) -> AlertModel {
+    private func show(quiz result: QuizResultsViewModel) {
         let alert = AlertModel(title: result.title, message: result.text, buttonText: result.buttonText, completion: { [weak self] in
             guard let self = self else { return }
             self.currentQuestionIndex = 0
             self.correctAnswers = 0
             self.questionFactory.requestNextQuestion()
         })
-        return alert
+        alertPresenter.showAlert(model: alert)
+       
     }
       
     
