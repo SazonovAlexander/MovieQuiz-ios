@@ -17,6 +17,9 @@
 		001A0C492AC075D50006D87E /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A0C482AC075D50006D87E /* AlertPresenter.swift */; };
 		001A0C4B2AC18D510006D87E /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A0C4A2AC18D510006D87E /* AlertPresenterProtocol.swift */; };
 		001A0C4D2AC18DA00006D87E /* AlertPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A0C4C2AC18DA00006D87E /* AlertPresenterDelegate.swift */; };
+		001A0C4F2AC1B9800006D87E /* StatisticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A0C4E2AC1B9800006D87E /* StatisticService.swift */; };
+		001A0C512AC1BB910006D87E /* GameRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A0C502AC1BB910006D87E /* GameRecord.swift */; };
+		001A0C532AC1C27F0006D87E /* StatisticServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A0C522AC1C27F0006D87E /* StatisticServiceImplementation.swift */; };
 		007168DB2AAA392600FB5B32 /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 007168D92AAA392600FB5B32 /* YS Display-Bold.ttf */; };
 		007168DC2AAA392600FB5B32 /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 007168DA2AAA392600FB5B32 /* YS Display-Medium.ttf */; };
 		AD1ABAB22831907B00B3E448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1ABAB12831907B00B3E448 /* AppDelegate.swift */; };
@@ -41,6 +44,9 @@
 		001A0C482AC075D50006D87E /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		001A0C4A2AC18D510006D87E /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		001A0C4C2AC18DA00006D87E /* AlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterDelegate.swift; sourceTree = "<group>"; };
+		001A0C4E2AC1B9800006D87E /* StatisticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticService.swift; sourceTree = "<group>"; };
+		001A0C502AC1BB910006D87E /* GameRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecord.swift; sourceTree = "<group>"; };
+		001A0C522AC1C27F0006D87E /* StatisticServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticServiceImplementation.swift; sourceTree = "<group>"; };
 		007168D92AAA392600FB5B32 /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		007168DA2AAA392600FB5B32 /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
 		AD1ABAAE2831907B00B3E448 /* MovieQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +81,8 @@
 				001A0C442AC06F1B0006D87E /* QuestionFactoryDelegate.swift */,
 				001A0C4A2AC18D510006D87E /* AlertPresenterProtocol.swift */,
 				001A0C4C2AC18DA00006D87E /* AlertPresenterDelegate.swift */,
+				001A0C4E2AC1B9800006D87E /* StatisticService.swift */,
+				001A0C522AC1C27F0006D87E /* StatisticServiceImplementation.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -86,6 +94,7 @@
 				001A0C3E2AC0597A0006D87E /* QuizResultsViewModel.swift */,
 				001A0C402AC0598A0006D87E /* QuizQuestion.swift */,
 				001A0C462AC075BB0006D87E /* AlertModel.swift */,
+				001A0C502AC1BB910006D87E /* GameRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +251,9 @@
 				AD1ABAB22831907B00B3E448 /* AppDelegate.swift in Sources */,
 				001A0C3F2AC0597A0006D87E /* QuizResultsViewModel.swift in Sources */,
 				AD1ABAB42831907B00B3E448 /* SceneDelegate.swift in Sources */,
+				001A0C532AC1C27F0006D87E /* StatisticServiceImplementation.swift in Sources */,
+				001A0C512AC1BB910006D87E /* GameRecord.swift in Sources */,
+				001A0C4F2AC1B9800006D87E /* StatisticService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
