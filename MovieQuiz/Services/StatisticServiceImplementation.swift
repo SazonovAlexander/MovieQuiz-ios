@@ -55,7 +55,6 @@ class StatisticServiceImplementation: StatisticService {
             bestGame = game
         }
         gamesCount = gamesCount + 1
-        print(Double(count) / Double(amount))
         totalAccurancy = (totalAccurancy * Double(gamesCount - 1) + Double(count) / Double(amount)) / Double(gamesCount)
     }
     
