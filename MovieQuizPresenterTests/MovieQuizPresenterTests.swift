@@ -3,27 +3,27 @@ import XCTest
 
 final class MovieQuizViewControllerMock: MovieQuizViewControllerProtocol {
     func show(quiz step: MovieQuiz.QuizStepViewModel) {
-        <#code#>
+        
     }
     
     func show(quiz step: MovieQuiz.QuizResultsViewModel) {
-        <#code#>
+        
     }
     
     func highlightImageBorder(isCorrectAnswer: Bool) {
-        <#code#>
+        
     }
     
     func showLoadingIndicator() {
-        <#code#>
+        
     }
     
     func hideLoadingIndicator() {
-        <#code#>
+        
     }
     
     func showNetworkError(message: String) {
-        <#code#>
+    
     }
     
     
@@ -33,8 +33,7 @@ final class MovieQuizPresenterTests: XCTestCase {
 
     func testPresenterConvertModel() throws {
         let viewControllerMock = MovieQuizViewControllerMock()
-        let sut = MovieQuizPresenter()
-        sut.viewController = viewControllerMock
+        let sut = MovieQuizPresenter(viewController: viewControllerMock)
         
         let emptyData = Data()
         let question = QuizQuestion(image: emptyData, text: "Question Text", correctAnswer: true)
